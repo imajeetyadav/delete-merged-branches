@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-BRANCH_NAME="main"
-
 BRANCH_LIST=`git branch -r | grep -v -- '->'`
 for branch in ${BRANCH_LIST[@]}
 do  
