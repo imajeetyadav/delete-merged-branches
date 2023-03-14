@@ -3,10 +3,10 @@
 BRANCH_NAME="main"
 
 BRANCH_LIST=`git branch -r | grep -v -- '->'`
-for branch in ${branch_list[@]}
+for branch in ${BRANCH_LIST[@]}
 do  
-    echo 'origin/$BRANCH_NAME'
-    if [ $branch != 'origin/$BRANCH_NAME' ]; then
+    DEFAULT_BRANCH="origin/"${BRANCH_NAME}
+    if [ $branch != $DEFAULT_BRANCH ]; then
         git branch --track ${branch##origin/} $branch; 
     fi
 done
