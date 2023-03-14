@@ -5,6 +5,7 @@ BRANCH_NAME="main"
 BRANCH_LIST=`git branch -r | grep -v -- '->'`
 for branch in ${branch_list[@]}
 do  
+    echo 'origin/$BRANCH_NAME'
     if [ $branch != 'origin/$BRANCH_NAME' ]; then
         git branch --track ${branch##origin/} $branch; 
     fi
