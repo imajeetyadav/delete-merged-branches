@@ -1,0 +1,21 @@
+name: Delete Merged Branches
+description: This action is used to delete merged branches.
+author: Ajeet Yadav <ajeetyadav164@gmail.com>
+branding:
+  icon: "terminal"
+  color: "gray-dark"
+inputs:
+  branch:
+    description: Provide branch name to find all merged branches ( main or master)
+    required: false
+    default: main
+runs:
+  using: composite
+  steps:
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - name: Delete Merged Branches
+      run: setup.sh
+      shell: bash
+      env:
+        BRANCH_NAME: ${{ inputs.branch }}
