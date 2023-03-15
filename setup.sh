@@ -8,11 +8,11 @@ do
     fi
 done
 git checkout $BRANCH_NAME 
+git branch --merged $BRANCH_NAME | grep -v 'main$' | xargs git branch -d
 if [ `git branch --merged | wc -l` == 1 ]; then
     echo "🥳 No merged branch found"
     exit 0
 else
-    git branch --merged | egrep -v "(^\*|$BRANCH_NAME)" | xargs git push origin -d
+    git branch --merged $BRANCH_NAME | egrep -v "(^\*|'$BRANCH_NAME')" | xargs git push origin -d
     echo "🗑️ Delete All Merged Branch!" 
 fi
-
