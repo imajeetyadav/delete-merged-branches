@@ -8,7 +8,6 @@ do
     fi
 done
 git checkout $BRANCH_NAME 
-git branch --merged $BRANCH_NAME | grep -v 'main$' | xargs git branch -d
 if [ `git branch --merged | wc -l` == 1 ]; then
     echo "🥳 No merged branch found"
     exit 0
