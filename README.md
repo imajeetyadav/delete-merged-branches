@@ -6,7 +6,7 @@ To use this action, add the following step to your GitHub Action workflow:
 ```yaml
 - uses: imajeetyadav/delete-merged-branches@main
   with:
-    branch: master # main is default value
+    branch: master # default value - main
 ```
 
 ## Authors
